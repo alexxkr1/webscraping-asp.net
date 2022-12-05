@@ -25,10 +25,11 @@ namespace WebApplication10.Controllers
 
             var web = new HtmlWeb();
             var doc = web.Load("https://jalgpall.ee/voistlused/52/premium-liiga");
+            var doc2 = web.Load("https://jalgpall.ee/voistlused/team/4");
 
             foreach (var item in doc.DocumentNode.SelectNodes("//*[@id=\"page\"]/div/div[1]/div[1]/div[1]/table/tbody/tr"))
             {
-                int i = 1;
+          
                 string kohtliigas = item.SelectSingleNode(".//td[1]").InnerText.Trim();
                 string img = item.SelectSingleNode($".//td[2]/img").GetAttributeValue("src", null).Trim();
                 string title = item.SelectSingleNode(".//td[3]").InnerText.Trim();
@@ -38,12 +39,7 @@ namespace WebApplication10.Controllers
                 string kaotusi = item.SelectSingleNode(".//td[7]").InnerText.Trim();
                 string väravaid = item.SelectSingleNode(".//td[8]").InnerText.Trim();
                 string punkte = item.SelectSingleNode(".//td[9]").InnerText.Trim();
-   
-
-                //string img = item.SelectSingleNode($"//*[@id='page']/div/div[1]/div[1]/div[1]/table/tbody/tr/td[{number}]/img").GetAttributeValue("src", null).Trim();
-                //string kohtliigas = item.SelectSingleNode($"//*[@id=\"page\"]/div/div[1]/div[1]/div[1]/table/tbody/[{i++}]/td[1]").InnerText.Trim();
-
-                Console.WriteLine(item.InnerText);
+           
                 klubid.Add(new Klubid()
                 {
                     title = title,
@@ -58,16 +54,38 @@ namespace WebApplication10.Controllers
 
                 });
 
-    }
-            foreach (var item in doc.DocumentNode.SelectNodes("//*[@id=\"page\"]/div/div[1]/div[1]/div[1]/table/tbody/tr/td[1]"))
+           
+            }
+
+            foreach (var item in doc2.DocumentNode.SelectNodes("//*[@id=\"page\"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr"))
             {
+           
+                string date = item.SelectSingleNode(".//td[1]").InnerText.Trim();
+                string teamleft = item.SelectSingleNode($".//td[2]/div/img").GetAttributeValue("src", null).Trim();
+                string teamright = item.SelectSingleNode($".//td[4]/div/img").GetAttributeValue("src", null).Trim();
+                string score = item.SelectSingleNode(".//td[3]").InnerText.Trim();
+
+                //*[@id="page"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr[3]/td[4]/div/img
+                //*[@id="page"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr[1]/td[4]/div/img
+                //*[@id="page"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr[1]/td[3]/a
                 klubid.Add(new Klubid()
                 {
-                    //kohtliigas = item.InnerText
-            });
-        }
+                    date = date,
+                    teamleft = teamleft,
+                    teamright = teamright,
+                    score = score
+
+
+                });
+
+
+            }
 
             return View(klubid);
+
+            //*[@id="page"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr[1]
+
+
         }
 
         public IActionResult Privacy()

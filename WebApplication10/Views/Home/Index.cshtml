@@ -89,10 +89,20 @@
         }
     </tbody>
 </table>
-  title = title,
-                    logo = img,
-                    võite = võite,
-                    viike = viike,
-                    kaotusi = kaotusi,
-                    väravaid = väravaid,
-                    punkte = punkte
+
+<table>
+    <thead>
+    </thead>
+    <tbody>
+         @foreach (var item in Model)
+        {
+        <tr>
+            <td>  <p>@item.date</p></td>
+            <td> <img src="@item.teamleft"> </td>
+                <td> <p>@item.score</p></td>
+                <td><img src="@item.teamright"> </td>
+        </tr>
+        }
+    </tbody>
+
+</table>

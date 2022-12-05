@@ -1,4 +1,7 @@
-﻿namespace WebApplication10.Models
+﻿using static System.Formats.Asn1.AsnWriter;
+using System.ComponentModel;
+
+namespace WebApplication10.Models
 {
     public class Klubid
     {
@@ -11,5 +14,11 @@
         public string kaotusi { get; set; }
         public string väravaid { get; set; }
         public string punkte { get; set; }
+
+
+        public string date { get; set; }
+        public string teamleft { get; set; }
+        public string teamright { get; set; }
+        public string score { get; set; }
     }
 }
