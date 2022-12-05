@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<WebApplication10.Models.Klubid>
+
+@*    <table>
+    <thead>
+        <tr class="footable-header">
+
+
+
+
+
+
+
+
+
+            <th class="footable-first-visible" style="display: table-cell;"></th>
+            <th data-type="html" style="display: table-cell;">Võistkond</th>
+            <th data-type="html" style="display: table-cell;"></th>
+            <th style="display: table-cell;">Mänge</th>
+            <th data-breakpoints="xs" style="display: table-cell;">Võite</th>
+            <th data-breakpoints="xs" style="display: table-cell;">Viike</th>
+            <th data-breakpoints="xs" style="display: table-cell;">Kaotusi</th>
+            <th data-breakpoints="xs" style="display: table-cell;">Väravad</th>
+            <th class="footable-last-visible" style="display: table-cell;">Punkte</th>
+        </tr>
+    </thead>
+    <tbody>
+    <td>
+            @foreach (var item in Model)
+            {
+        <tr>@item.title</tr>
+            }
+    </td>
+
+    </tbody>
+
+    </table>*@
+
+<table>
+    <thead>
+        <tr>
+    <th class="footable-first-visible" style="display: table-cell;"></th>
+    <th data-type="html" style="display: table-cell;">Võistkond</th>
+    <th data-type="html" style="display: table-cell;"></th>
+    <th style="display: table-cell;">Mänge</th>
+    <th data-breakpoints="xs" style="display: table-cell;">Võite</th>
+    <th data-breakpoints="xs" style="display: table-cell;">Viike</th>
+    <th data-breakpoints="xs" style="display: table-cell;">Kaotusi</th>
+    <th data-breakpoints="xs" style="display: table-cell;">Väravad</th>
+    <th class="footable-last-visible" style="display: table-cell;">Punkte</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p>@item.kohtliigas</p>
+                </td>
+                <td>
+                    <img src="@item.logo" width="50px"></img>
+                </td>
+                <td>
+                    <p>@item.title</p>
+                </td>
+                    <td>
+                    <p>@item.title</p>
+                    </td>
+                <td>
+                    <p>@item.võite</p>
+                </td>
+                <td>
+                    <p>@item.viike</p>
+                </td>
+                <td>
+                    <p>@item.kaotusi</p>
+                </td>
+                <td>
+                    <p>@item.väravaid</p>
+                </td>
+                <td>
+                    <p>@item.punkte</p>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+  title = title,
+                    logo = img,
+                    võite = võite,
+                    viike = viike,
+                    kaotusi = kaotusi,
+                    väravaid = väravaid,
+                    punkte = punkte
