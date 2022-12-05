@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "gTeQw8jNdxU2n3ibRKega7uV9wnVHGXogLD+Ad7N2xLXbe0FKfaVKzZvyliNtAKXD/4x8BuG8UtLkFvcb2cw+Q==",
+  "dgSpecHash": "FnAjuDq5s94bdvIk/OIR7bvaKQHCnIgxXS3oAsthBLaXDthPRqZgZNTCwikwdVKiM35WgIgC5k/nnNL7E+gtow==",
   "success": true,
-  "projectFilePath": "C:\\Users\\opilane\\Source\\repos\\WebApplication10\\WebApplication10\\WebApplication10.csproj",
+  "projectFilePath": "C:\\Users\\weers\\Source\\Repos\\webscraping-asp.net\\WebApplication10\\WebApplication10.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\opilane\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512"
+    "C:\\Users\\weers\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512"
   ],
   "logs": []
 }

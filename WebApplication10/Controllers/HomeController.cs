@@ -24,8 +24,8 @@ namespace WebApplication10.Controllers
             List<Klubid> klubid = new List<Klubid>();
 
             var web = new HtmlWeb();
-            var doc = web.Load("https://jalgpall.ee/voistlused/52/premium-liiga");
-            var doc2 = web.Load("https://jalgpall.ee/voistlused/team/4");
+            var doc = web.Load("https://jalgpall.ee/voistlused/madalamad-liigad/5/III.E");
+            var doc2 = web.Load("https://jalgpall.ee/voistlused/5/team/4223?season=2022");
 
             foreach (var item in doc.DocumentNode.SelectNodes("//*[@id=\"page\"]/div/div[1]/div[1]/div[1]/table/tbody/tr"))
             {
@@ -57,14 +57,18 @@ namespace WebApplication10.Controllers
            
             }
 
-            foreach (var item in doc2.DocumentNode.SelectNodes("//*[@id=\"page\"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr"))
+         
+
+            foreach (var item in doc2.DocumentNode.SelectNodes("//*[@id=\"page\"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr").Take(4))
             {
            
                 string date = item.SelectSingleNode(".//td[1]").InnerText.Trim();
                 string teamleft = item.SelectSingleNode($".//td[2]/div/img").GetAttributeValue("src", null).Trim();
                 string teamright = item.SelectSingleNode($".//td[4]/div/img").GetAttributeValue("src", null).Trim();
                 string score = item.SelectSingleNode(".//td[3]").InnerText.Trim();
+                string score6 = item.SelectSingleNode(".//td").InnerText.Trim();
 
+                //*[@id="page"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr[44]/td
                 //*[@id="page"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr[3]/td[4]/div/img
                 //*[@id="page"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr[1]/td[4]/div/img
                 //*[@id="page"]/div[2]/div[1]/div/div[2]/ul/li[1]/table/tbody/tr[1]/td[3]/a
